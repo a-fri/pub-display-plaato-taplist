@@ -73,53 +73,57 @@
     var keg2 = "http://plaato.blynk.cc/[Token-Goes-Here]/get/";
     var keg3 = "http://plaato.blynk.cc/[Token-Goes-Here]/get/";
 
-    $.get(keg1 + "v64", function (beerName1) {
-      $("#name1").html("'" +beerName1 + "'");
-    });
-    $.get(keg1 + "v48", function (percentLeft1) {
-      $("#prec1").html(percentLeft1 + "% left");
-    });
-    $.get(keg1 + "v51", function (litersLeft1) {
-      $("#liters1").html(litersLeft1  + " litres");
-    });
-    $.get(keg1 + "v67", function (description1) {
-      $("#desc1").html(description1);
-    });
-    $.get(keg1 + "v68", function (abv1) {
-      $("#abv1").html(abv1 + "% abv");
-    });
+    function update() {
+      $.get(keg1 + "v64", function (beerName1) {
+        $("#name1").html("'" +beerName1 + "'");
+      });
+      $.get(keg1 + "v48", function (percentLeft1) {
+       $("#prec1").html(percentLeft1 + "% left");
+      });
+      $.get(keg1 + "v51", function (litersLeft1) {
+       $("#liters1").html(litersLeft1  + " litres");
+      });
+      $.get(keg1 + "v67", function (description1) {
+       $("#desc1").html(description1);
+      });
+      $.get(keg1 + "v68", function (abv1) {
+       $("#abv1").html(abv1 + "% abv");
+      });
 
-    $.get(keg2 + "v64", function (beerName2) {
-      $("#name2").html("'" +beerName2 + "'");
-    });
-    $.get(keg2 + "v48", function (percentLeft2) {
-      $("#prec2").html(percentLeft2 + "% left");
-    });
-    $.get(keg2 + "v51", function (litersLeft2) {
-      $("#liters2").html(litersLeft2  + " litres");
-    });
-    $.get(keg2 + "v67", function (description2) {
-      $("#desc2").html(description2);
-    });
-    $.get(keg2 + "v68", function (abv2) {
-      $("#abv2").html(abv2 + "% abv");
-    });
+      $.get(keg2 + "v64", function (beerName2) {
+       $("#name2").html("'" +beerName2 + "'");
+      });
+      $.get(keg2 + "v48", function (percentLeft2) {
+        $("#prec2").html(percentLeft2 + "% left");
+      });
+      $.get(keg2 + "v51", function (litersLeft2) {
+       $("#liters2").html(litersLeft2  + " litres");
+      });
+      $.get(keg2 + "v67", function (description2) {
+       $("#desc2").html(description2);
+      });
+      $.get(keg2 + "v68", function (abv2) {
+       $("#abv2").html(abv2 + "% abv");
+      });
 
-    $.get(keg3 + "v64", function (beerName3) {
-      $("#name3").html("'" +beerName3 + "'");
-    });
-    $.get(keg3 + "v48", function (percentLeft3) {
-      $("#prec3").html(percentLeft3 + "% left");
-    });
-    $.get(keg3 + "v51", function (litersLeft3) {
-      $("#liters3").html(litersLeft3  + " litres");
-    });
-    $.get(keg3 + "v67", function (description3) {
-      $("#desc3").html(description3);
-    });
-    $.get(keg3 + "v68", function (abv3) {
-      $("#abv3").html(abv3 + "% abv");
-    });
+      $.get(keg3 + "v64", function (beerName3) {
+        $("#name3").html("'" +beerName3 + "'");
+      });
+      $.get(keg3 + "v48", function (percentLeft3) {
+       $("#prec3").html(percentLeft3 + "% left");
+      });
+      $.get(keg3 + "v51", function (litersLeft3) {
+       $("#liters3").html(litersLeft3  + " litres");
+      });
+      $.get(keg3 + "v67", function (description3) {
+       $("#desc3").html(description3);
+      });
+      $.get(keg3 + "v68", function (abv3) {
+        $("#abv3").html(abv3 + "% abv");
+        window.setTimeout(update(), 100000);
+      });
+    }
+    update()
 
     //qr code url generator takes the current url and generate a QR code no matter where the file is hosted.
     var currentURL = $(location).attr('href');
